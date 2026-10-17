@@ -47,3 +47,71 @@
     flex-direction: column;
     gap: 18px;
   }
+ /* ---------- HUD / HEADER ---------- */
+  .hud{
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 20px;
+    background: linear-gradient(180deg, var(--panel), var(--bg-2));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  .brand{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .brand span{ color: var(--signal); }
+  .brand small{
+    display:block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+    margin-top: 2px;
+  }
+
+  .level-track{
+    display:flex;
+    align-items:center;
+    gap: 6px;
+  }
+  .lt-node{
+    position: relative;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    border: 2px solid var(--border-strong);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+    background: var(--bg-2);
+    transition: all .35s ease;
+  }
+  .lt-node.done{ border-color: var(--go); color: var(--go); background: rgba(53,201,165,0.08); }
+  .lt-node.current{ border-color: var(--signal); color: var(--signal); box-shadow: 0 0 0 4px rgba(242,184,75,0.14); }
+  .lt-line{ width: 14px; height: 2px; background: var(--border-strong); }
+  .lt-line.done{ background: var(--go); }
+
+  .dial-wrap{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    min-width: 132px;
+  }
+  #dial{ width: 120px; height: 76px; overflow: visible; }
+  .dial-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--ink-dim);
+    margin-top: -6px;
+  }
+
