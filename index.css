@@ -174,3 +174,43 @@
   }
   .stage-list .name{ font-weight: 600; margin-top: 4px; font-size: 14.5px; }
   .stage-list .desc{ color: var(--ink-faint); font-size: 12.5px; margin-top: 4px; line-height: 1.45; }
+
+/* ---------- BUTTONS ---------- */
+  .btn{
+    appearance:none;
+    border: 1px solid var(--border-strong);
+    background: rgba(255,255,255,0.03);
+    color: var(--ink);
+    padding: 13px 26px;
+    border-radius: 999px;
+    font-size: 14.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform .15s ease, background .2s ease, border-color .2s ease;
+    align-self: flex-start;
+  }
+  .btn:hover{ transform: translateY(-1px); border-color: var(--border-strong); background: rgba(255,255,255,0.06); }
+  .btn:active{ transform: translateY(0px) scale(.98); }
+  .btn:focus-visible{ outline: 2px solid var(--signal); outline-offset: 3px; }
+
+  .btn-primary{
+    background: var(--signal);
+    color: #201705;
+    border-color: var(--signal);
+    font-weight: 600;
+  }
+  .btn-primary:hover{ background: #ffc563; }
+
+  .btn-row{ display:flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+
+  /* ---------- BRIEFING ---------- */
+  .briefing-head{ display:flex; align-items:baseline; gap: 12px; }
+  .briefing-head .lvl-num{ font-family:'IBM Plex Mono',monospace; color: var(--signal); font-size: 14px; }
+  .briefing-title{ font-size: 28px; font-weight: 700; }
+  .briefing-desc{ color: var(--ink-dim); line-height: 1.6; max-width: 600px; margin-top: 10px; font-size: 14.5px; }
+  .briefing-rules{ margin-top: 18px; display:flex; flex-direction:column; gap:8px; }
+  .briefing-rules .rule{ display:flex; gap:10px; align-items:flex-start; font-size: 13.5px; color: var(--ink-dim); }
+  .briefing-rules .dot{ width:6px;height:6px;border-radius:50%;background:var(--signal); margin-top:6px; flex:none; }
+
+
+
