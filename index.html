@@ -1,96 +1,111 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/app.css"/>
-    <link rel="stylesheet" href="/src/index.css"/>
-    <title>ACUITY LAB</title>
-  </head>
-  <body>
-   <!--  <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>  -->
-    <div id="app">
-      <header class="hud">
-    <div class="brand">ACUITY <span>LAB</span><small>COGNITIVE CALIBRATION INSTRUMENT</small></div>
-    <div class="level-track" id="levelTrack"></div>
-    <div class="dial-wrap">
-      <svg id="dial" viewBox="0 0 200 120">
-        <path d="M 20 110 A 90 90 0 0 1 180 110" fill="none" stroke="rgba(236,233,223,0.12)" stroke-width="10" stroke-linecap="round"/>
-        <path id="dialArc" d="M 20 110 A 90 90 0 0 1 180 110" fill="none" stroke="var(--signal)" stroke-width="10" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283"/>
-        <line x1="20" y1="110" x2="30" y2="110" stroke="rgba(236,233,223,0.3)" stroke-width="2" transform="rotate(-90 100 110)"/>
-        <line x1="20" y1="110" x2="30" y2="110" stroke="rgba(236,233,223,0.3)" stroke-width="2" transform="rotate(-45 100 110)"/>
-        <line x1="20" y1="110" x2="30" y2="110" stroke="rgba(236,233,223,0.3)" stroke-width="2" transform="rotate(0 100 110)"/>
-        <line x1="20" y1="110" x2="30" y2="110" stroke="rgba(236,233,223,0.3)" stroke-width="2" transform="rotate(45 100 110)"/>
-        <line x1="20" y1="110" x2="30" y2="110" stroke="rgba(236,233,223,0.3)" stroke-width="2" transform="rotate(90 100 110)"/>
-        <circle cx="100" cy="110" r="5" fill="var(--ink)"/>
-        <g id="needle">
-          <line x1="100" y1="110" x2="100" y2="34" stroke="var(--signal)" stroke-width="3" stroke-linecap="round"/>
-        </g>
-      </svg>
-      <div class="dial-label mono" id="dialLabel">STANDBY</div>
-    </div>
-  </header>
-  <main>
-
-    <!-- INTRO -->
-    <section class="screen active" id="screen-intro">
-      <div class="panel">
-        <div class="eyebrow">Five instruments · One measurement</div>
-        <h1 class="intro-title">Calibrate the machinery behind your attention.</h1>
-        <p class="intro-sub">Acuity Lab runs five short instruments across reaction speed, sustained attention, interference control, working memory, and processing speed. Each instrument gets harder as you go — the pace quickens, distractors multiply, and the margin for error narrows. Your results compile into a single Acuity Index.</p>
-        <ol class="stage-list">
-          <li><div class="num">01</div><div class="name">Reaction Speed</div><div class="desc">Respond the instant the signal fires.</div></li>
-          <li><div class="num">02</div><div class="name">Sustained Attention</div><div class="desc">Go on signal, hold on stop — timing shortens each round.</div></li>
-          <li><div class="num">03</div><div class="name">Interference Control</div><div class="desc">Match the ink color, ignore what the word says.</div></li>
-          <li><div class="num">04</div><div class="name">Working Memory</div><div class="desc">Track positions n-steps back as n climbs.</div></li>
-          <li><div class="num">05</div><div class="name">Processing Speed</div><div class="desc">Rapid-fire judgments under shrinking exposure.</div></li>
-        </ol>
-        <div class="btn-row">
-          <button class="btn btn-primary" id="btnBegin">Begin calibration</button>
-        </div>
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/src/app.css"/>
+      <link rel="stylesheet" href="/src/index.css"/>
+      <title>ACUITY LAB</title>
+    </head>
+    <body>
+     <!--  <div id="root"></div>
+      <script type="module" src="/src/main.jsx"></script>  -->
+      <div id="app">
+        <header class="hud">
+      <div class="brand">ACUITY <span>LAB</span><small>COGNITIVE CALIBRATION INSTRUMENT</small></div>
+      <div class="level-track" id="levelTrack"></div>
+      <div class="dial-wrap">
+        <svg id="dial" viewBox="0 0 200 120">
+          <path d="M 20 110 A 90 90 0 0 1 180 110" fill="none" stroke="rgba(236,233,223,0.12)" stroke-width="10" stroke-linecap="round"/>
+          <path id="dialArc" d="M 20 110 A 90 90 0 0 1 180 110" fill="none" stroke="var(--signal)" stroke-width="10" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283"/>
+          <line x1="20" y1="110" x2="30" y2="110" stroke="rgba(236,233,223,0.3)" stroke-width="2" transform="rotate(-90 100 110)"/>
+          <line x1="20" y1="110" x2="30" y2="110" stroke="rgba(236,233,223,0.3)" stroke-width="2" transform="rotate(-45 100 110)"/>
+          <line x1="20" y1="110" x2="30" y2="110" stroke="rgba(236,233,223,0.3)" stroke-width="2" transform="rotate(0 100 110)"/>
+          <line x1="20" y1="110" x2="30" y2="110" stroke="rgba(236,233,223,0.3)" stroke-width="2" transform="rotate(45 100 110)"/>
+          <line x1="20" y1="110" x2="30" y2="110" stroke="rgba(236,233,223,0.3)" stroke-width="2" transform="rotate(90 100 110)"/>
+          <circle cx="100" cy="110" r="5" fill="var(--ink)"/>
+          <g id="needle">
+            <line x1="100" y1="110" x2="100" y2="34" stroke="var(--signal)" stroke-width="3" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <div class="dial-label mono" id="dialLabel">STANDBY</div>
       </div>
-    </section>
- <!-- BRIEFING -->
-    <section class="screen" id="screen-briefing">
-      <div class="panel">
-        <div class="briefing-head">
-          <div class="lvl-num mono" id="brNum">INSTRUMENT 01</div>
+    </header>
+    <main>
+    
+      <!-- INTRO -->
+      <section class="screen active" id="screen-intro">
+        <div class="panel">
+          <div class="eyebrow">Five instruments · One measurement</div>
+          <h1 class="intro-title">Calibrate the machinery behind your attention.</h1>
+          <p class="intro-sub">Acuity Lab runs five short instruments across reaction speed, sustained attention, interference control, working memory, and processing speed. Each instrument gets harder as you go — the pace quickens, distractors multiply, and the margin for error narrows. Your results compile into a single Acuity Index.</p>
+          <ol class="stage-list">
+            <li><div class="num">01</div><div class="name">Reaction Speed</div><div class="desc">Respond the instant the signal fires.</div></li>
+            <li><div class="num">02</div><div class="name">Sustained Attention</div><div class="desc">Go on signal, hold on stop — timing shortens each round.</div></li>
+            <li><div class="num">03</div><div class="name">Interference Control</div><div class="desc">Match the ink color, ignore what the word says.</div></li>
+            <li><div class="num">04</div><div class="name">Working Memory</div><div class="desc">Track positions n-steps back as n climbs.</div></li>
+            <li><div class="num">05</div><div class="name">Processing Speed</div><div class="desc">Rapid-fire judgments under shrinking exposure.</div></li>
+          </ol>
+          <div class="btn-row">
+            <button class="btn btn-primary" id="btnBegin">Begin calibration</button>
+          </div>
         </div>
-        <h2 class="briefing-title" id="brTitle"></h2>
-        <p class="briefing-desc" id="brDesc"></p>
-        <div class="briefing-rules" id="brRules"></div>
-        <div class="btn-row">
-          <button class="btn btn-primary" id="btnStartLevel">Start instrument</button>
+      </section>
+    <!-- BRIEFING -->
+      <section class="screen" id="screen-briefing">
+        <div class="panel">
+          <div class="briefing-head">
+            <div class="lvl-num mono" id="brNum">INSTRUMENT 01</div>
+          </div>
+          <h2 class="briefing-title" id="brTitle"></h2>
+          <p class="briefing-desc" id="brDesc"></p>
+          <div class="briefing-rules" id="brRules"></div>
+          <div class="btn-row">
+            <button class="btn btn-primary" id="btnStartLevel">Start instrument</button>
+          </div>
         </div>
+      </section>
+      <!-- GAME -->
+      <section class="screen" id="screen-game">
+        <div class="panel">
+          <div class="stage-heading">
+            <div class="title" id="stageTitle">Instrument</div>
+            <div class="cue mono" id="stageCue">—</div>
+          </div>
+          <div id="game-stage"></div>
+        </div>
+      </section>
+       <!-- LEVEL RESULT -->
+      <section class="screen" id="screen-levelresult">
+        <div class="panel">
+          <div class="eyebrow" id="lrEyebrow">Instrument complete</div>
+          <h2 class="briefing-title" id="lrTitle"></h2>
+          <div class="result-grid" id="lrGrid"></div>
+          <p class="result-comment" id="lrComment"></p>
+          <div class="btn-row">
+            <button class="btn btn-primary" id="btnContinue">Continue</button>
+          </div>
+        </div>
+      </section>
+      <!-- FINAL -->
+      <section class="screen" id="screen-final">
+        <div class="panel">
+          <div class="eyebrow">Calibration complete</div>
+          <div class="final-top">
+            <div class="acuity-index">
+              <div class="num" id="finalIndex">–</div>
+              <div class="lbl">ACUITY INDEX</div>
+            </div>
+            <p class="final-verdict" id="finalVerdict"></p>
+          </div>
+          <div class="domain-bars" id="domainBars"></div>
+          <div class="btn-row">
+            <button class="btn btn-primary" id="btnRestart">Recalibrate</button>
+          </div>
+        </div>
+      </section>
+    </main>
       </div>
-    </section>
-    <!-- GAME -->
-    <section class="screen" id="screen-game">
-      <div class="panel">
-        <div class="stage-heading">
-          <div class="title" id="stageTitle">Instrument</div>
-          <div class="cue mono" id="stageCue">—</div>
-        </div>
-        <div id="game-stage"></div>
-      </div>
-    </section>
-     <!-- LEVEL RESULT -->
-    <section class="screen" id="screen-levelresult">
-      <div class="panel">
-        <div class="eyebrow" id="lrEyebrow">Instrument complete</div>
-        <h2 class="briefing-title" id="lrTitle"></h2>
-        <div class="result-grid" id="lrGrid"></div>
-        <p class="result-comment" id="lrComment"></p>
-        <div class="btn-row">
-          <button class="btn btn-primary" id="btnContinue">Continue</button>
-        </div>
-      </div>
-    </section>
-
-
-  </main>
-    </div>
-  </body>
-</html>
+    </body>
+    </html>
