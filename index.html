@@ -131,6 +131,28 @@
                     $(id).classList.add('active');
                   }
 
+                  function setDial(value, label){
+                    // value 0-100
+                    const v = clamp(value, 0, 100);
+                    const circumference = 283; // approx path length of the arc
+                    const offset = circumference - (v/100) * circumference;
+                    $('dialArc').style.strokeDashoffset = offset;
+                    const angle = -90 + (v/100) * 180;
+                    $('needle').setAttribute('transform', 'rotate(' + angle + ' 100 110)');
+                    $('dialLabel').textContent = label || '—';
+                  }
+                
+                  function setReadout({trial, rt, acc, streak}){
+                    if(trial !== undefined) $('rvTrial').textContent = trial;
+                    if(rt !== undefined) $('rvRT').textContent = rt;
+                    if(acc !== undefined) $('rvAcc').textContent = acc;
+                    if(streak !== undefined) $('rvStreak').textContent = streak;
+                  }
+                
+                  function resetReadout(){
+                    setReadout({trial:'–', rt:'–', acc:'–', streak:0});
+                  }
+
             })();
         </script>
     </body>
