@@ -153,6 +153,21 @@
                     setReadout({trial:'–', rt:'–', acc:'–', streak:0});
                   }
 
+                 /* ======================= STATE ======================= */
+                  const DOMAINS = [
+                    { key:'speed',    label:'Reaction Speed' },
+                    { key:'attention',label:'Sustained Attention' },
+                    { key:'inhibit',  label:'Interference Control' },
+                    { key:'memory',   label:'Working Memory' },
+                    { key:'process',  label:'Processing Speed' }
+                  ];
+                
+                  let STATE = { scores:{}, currentLevel: 1, streak: 0 };
+                
+                  function resetState(){
+                    STATE = { scores:{}, currentLevel: 1, streak: 0 };
+                  }
+
             })();
         </script>
     </body>
