@@ -117,7 +117,20 @@
         <script>
             (function(){
                 "use strict";
+                  /* ======================= UTILITIES ======================= */
+                  const $ = (id) => document.getElementById(id);
+                  const rand = (min, max) => Math.random() * (max - min) + min;
+                  const randi = (min, max) => Math.floor(rand(min, max + 1));
+                  const choice = (arr) => arr[randi(0, arr.length - 1)];
+                  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+                  const avg = (arr) => arr.length ? arr.reduce((a,b)=>a+b,0) / arr.length : 0;
+                  const shuffle = (arr) => { const a = arr.slice(); for(let i=a.length-1;i>0;i--){ const j = randi(0,i); [a[i],a[j]]=[a[j],a[i]]; } return a; };
                 
+                  function showScreen(id){
+                    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+                    $(id).classList.add('active');
+                  }
+
             })();
         </script>
     </body>
