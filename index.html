@@ -167,6 +167,26 @@
                   function resetState(){
                     STATE = { scores:{}, currentLevel: 1, streak: 0 };
                   }
+                
+                  /* ======================= LEVEL TRACK ======================= */
+                  function renderLevelTrack(){
+                    const el = $('levelTrack');
+                    el.innerHTML = '';
+                    for(let i=1; i<=5; i++){
+                      const node = document.createElement('div');
+                      node.className = 'lt-node';
+                      node.textContent = i;
+                      if(i < STATE.currentLevel) node.classList.add('done');
+                      else if(i === STATE.currentLevel) node.classList.add('current');
+                      el.appendChild(node);
+                      if(i < 5){
+                        const line = document.createElement('div');
+                        line.className = 'lt-line' + (i < STATE.currentLevel ? ' done' : '');
+                        el.appendChild(line);
+                      }
+                    }
+                  }
+
 
             })();
         </script>
